@@ -1,4 +1,21 @@
 # NLP-Financial-Crisis-Modeling
 Projet overview : This project explores the relationship between financial news sentiment and market volatility during the 2008 Financial Crisis. The goal is to determine if textual data from mainstream financial media (CNBC) can serve as a leading indicator for volatility spikes in the banking sector.
 
+Log Entry 1: Project Inception & Hypothesis
+**Goal:** Determine if public financial news can predict market "regimes" better than price history alone.
+- **Hypothesis:** News sentiment is a leading indicator for the KBE (Bank ETF) volatility.
+- **Initial Stack:** Python, Pandas, NLTK VADER.
+- **First Results:** Worked on a small sample of 83 headlines. Initial plots showed a visual correlation, but the sample was too small for statistical significance.
+
+Log Entry 2: Scaling to Big Data 
+**Update:** Shifted from 80 headlines to a massive dataset of **307,000 headlines**.
+- **Technical Hurdle:** Encountered date formatting problems (YYYYMMDD integer format).
+- **Optimization:** To handle 300k+ entries efficiently, I implemented pre-computation filtering. By restricting the dataset to the 2006-2008 window before running the NLP analysis, I significantly reduced the computational overhead. Additionally, I used explicit date parsing (converting YYYYMMDD integers to datetime objects) to ensure high-speed data ingestion.
+- **Achievement:** Successfully processed the full 2006-2008 period. The "Law of Large Numbers" began to smooth out the sentiment signal.
+
+Log Entry 3: From Visuals to Correlation
+**Update:** Moving beyond "it looks similar" to mathematical proof.
+- **Finding:** Calculated a **60-day Rolling Correlation**. 
+- **Discovery:** The correlation is highly non-stationary. I identified a major **-0.8 peak in August 2007**, marking the start of the liquidity crisis.
+- **Analysis of Anomalies:** Observed correlation "flips" (up to +0.65) during early 2008. - - - **Hypothesis**: These periods correspond to government intervention rumors where "good news" actually increases market agitation/volatility.
 
