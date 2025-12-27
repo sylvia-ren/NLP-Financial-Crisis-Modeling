@@ -17,5 +17,8 @@ Log Entry 3: From Visuals to Correlation
 **Update:** Moving beyond "it looks similar" to mathematical proof.
 - **Finding:** Calculated a **60-day Rolling Correlation**. 
 - **Discovery:** The correlation is highly non-stationary. I identified a major **-0.8 peak in August 2007**, marking the start of the liquidity crisis.
-- **Analysis of Anomalies:** Observed correlation "flips" (up to +0.65) during early 2008. - - - **Hypothesis**: These periods correspond to government intervention rumors where "good news" actually increases market agitation/volatility.
+- **Analysis of Anomalies:** Observed correlation "flips" (up to +0.65) during early 2008.   - - **Hypothesis**: These periods correspond to government intervention rumors where "good news" actually increases market agitation/volatility.
+
+Log Entry 4 : Analysis limitation
+The current analysis uses VADER as a baseline and a 20-day rolling volatility to explore preliminary patterns. We recognize that VADER is not finance-specific, and the 20-day window may smooth short-term reactions. These limitations motivate the next phase: applying finance-specific NLP models (FinBERT / Loughran-McDonald), testing different volatility horizons, and employing models such as Set-Sequence or Markov-switching to capture regime-dependent effects.
 
