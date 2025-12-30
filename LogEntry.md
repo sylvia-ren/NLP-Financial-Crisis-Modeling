@@ -36,3 +36,16 @@
     * **Alpha Detected:** Granger Causality Test confirms sentiment predicts volatility changes significantly.
     * **Specificity:** The signal is strong on the Banking Sector (**KBE**) but negligible on the global market (**VIX**), proving the model captures sector-specific panic rather than global noise.
     * **Optimal Window:** Identified a **6-day lag** as the optimal transmission period for news to impact realized volatility.
+
+## Log Entry 6: Robustness & Discriminant Validity Check
+**Goal:** Challenge the model's specificity by comparing Sectorial Volatility (KBE) against a Market Benchmark (VIX).
+
+* **Methodological Pivot:** Introduced the **VIX (CBOE Volatility Index)** as a control variable.
+    * *Scientific Justification:* To determine if the NLP signal predicts *global market sentiment* (Implied Volatility) or strictly *banking sector turbulence* (Realized Volatility).
+* **Calibration (Sensitivity Analysis):**
+    * Tested volatility calculation windows ranging from 3 to 14 days.
+    * **Discovery:** Identified **6 days (one trading week)** as the optimal "news absorption" period ($p < 0.001$). This suggests a structural lag between news publication and its full impact on bank stock volatility.
+* **Comparative Results:**
+    * **Target A (KBE - Banking Sector):** Strong Granger Causality found across lags 2-15. The sentiment signal clearly precedes the price turbulence.
+    * **Target B (VIX - S&P 500 Benchmark):** No significant causality found. The VIX reacts instantaneously to news, leaving no predictive lag for the daily model.
+* **Conclusion:** The discrepancy confirms the model's **Discriminant Validity**. The NLP pipeline successfully captures **idiosyncratic banking risk** (specific to the nature of the 2008 crisis) but is not a proxy for global implied volatility. The signal is genuine sector-specific alpha.
