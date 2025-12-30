@@ -1,0 +1,8 @@
+pandas
+numpy
+statsmodels
+scikit-learn
+notebook
+
+
+pip install -r requirements.txt
