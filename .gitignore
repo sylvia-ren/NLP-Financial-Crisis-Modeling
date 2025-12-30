@@ -1,0 +1,11 @@
+# Ignorer le dossier de l'environnement virtuel
+quant_nlp_env/
+
+# Ignorer les fichiers de données volumineux ou bruts (les données brutes ne doivent pas être versionnées)
+data/raw_corpus.*
+data/*.csv
+data/*.json
+
+# Ignorer les fichiers de cache
+__pycache__/
+*.ipynb_checkpointsquant_nlp_env/
