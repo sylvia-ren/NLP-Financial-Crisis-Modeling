@@ -47,3 +47,18 @@
     * **Target A (KBE - Banking Sector):** Strong Granger Causality found across lags 2-15. The sentiment signal clearly precedes the price turbulence.
     * **Target B (VIX - S&P 500 Benchmark):** No significant causality found. The VIX reacts instantaneously to news, leaving no predictive lag for the daily model.
 * **Conclusion:** The discrepancy confirms the model's **Discriminant Validity**. The NLP pipeline successfully captures **idiosyncratic banking risk** (specific to the nature of the 2008 crisis) but is not a proxy for global implied volatility. The signal is genuine sector-specific alpha.
+
+## Log Entry 7: Non-Linear Modeling (Markov Switching)
+**Goal:** Move beyond linear correlation to model structural breaks in market behavior. Markets are not constant; they switch between "Quiet" and "Turbulent" states.
+* **Hypothesis:** Financial news sentiment acts as a "State Transition Catalyst," increasing the probability of switching to a high-volatility regime.
+
+* **Methodology:**
+    1.  **Unsupervised Learning:** Applied a **Markov Switching Model (HMM)** with 2 regimes on KBE volatility. The model autonomously identified a "High Variance Regime" ($\sigma^2 \approx 0.11$) corresponding to the crisis, distinct from the "Normal Regime" ($\sigma^2 \approx 0.007$).
+    2.  **Predictive Testing:** Used a **Logistic Regression (Logit)** to test if lagged sentiment ($t-6$) predicts the probability of being in the Crisis Regime at $t$.
+
+* **Key Findings:**
+    * **Regime Persistence:** The crisis regime is "sticky" ($P_{1 \to 1} = 97.8\%$), confirming the *Volatility Clustering* phenomenon (mandelbrot).
+    * **Predictive Power:** Sentiment is a highly significant predictor of regime switching ($p < 0.001$).
+    * **The "Detonator" Effect:** The coefficient is strongly negative ($-60.2$), implying that a deterioration in sentiment drastically increases the probability of entering a crisis state 6 days later.
+
+* **Conclusion:** The NLP signal is not just correlated with volatility; it is a **leading indicator of structural market breaks**. This validates the potential for a "Regime-Based Trading Strategy."
