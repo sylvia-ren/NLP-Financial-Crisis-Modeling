@@ -57,7 +57,6 @@
     2.  **Predictive Testing:** Used a **Logistic Regression (Logit)** to test if lagged sentiment ($t-6$) predicts the probability of being in the Crisis Regime at $t$.
 
 * **Key Findings:**
-    * **Regime Persistence:** The crisis regime is "sticky" ($P_{1 \to 1} = 97.8\%$), confirming the *Volatility Clustering* phenomenon (mandelbrot).
     * **Predictive Power:** Sentiment is a highly significant predictor of regime switching ($p < 0.001$).
     * **The "Detonator" Effect:** The coefficient is strongly negative ($-60.2$), implying that a deterioration in sentiment drastically increases the probability of entering a crisis state 6 days later.
 
